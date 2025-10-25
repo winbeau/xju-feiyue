@@ -1,0 +1,59 @@
+site_name: MkDocs Wiki Test
+theme:
+    name: material
+    features:
+        # - navigation.tabs
+        - navigation.top
+        - content.code.copy # Code Block Copy Button
+    # ------ Dark and Light Mode ------
+    palette:
+        # Palette toggle for automatic mode
+        - media: "(prefers-color-scheme)"
+          toggle:
+            icon: material/brightness-auto
+            name: Switch to light mode
+        # Palette toggle for light mode
+        - media: "(prefers-color-scheme: light)"
+          scheme: default
+          toggle:
+            icon: material/brightness-7
+            name: Switch to dark mode
+        # Palette toggle for dark mode
+        - media: "(prefers-color-scheme: dark)"
+          scheme: slate
+          toggle:
+            icon: material/brightness-4
+            name: Switch to system preference
+    # ------ Dark and Light Mode ------
+repo_url: https://github.com/winbeau/mkdocs-wiki
+markdown_extensions:
+    - pymdownx.highlight: # Code Block
+        linenums: true
+        line_spans: __span
+        pygments_lang_class: true
+    - pymdownx.inlinehilite # Code Block
+    - pymdownx.snippets # Code Block
+    - pymdownx.superfences: # Mermaid
+        custom_fences:
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
+    - pymdownx.arithmatex: # KaTeX
+        generic: true
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css
+
+nav:
+    - 首页: index.md
+    - 测试课程:
+        - 课程简介: test-course/intro/main.md
+        - 笔记: test-course/note/main.md
