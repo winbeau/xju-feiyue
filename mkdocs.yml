@@ -60,6 +60,7 @@ extra_javascript:
 extra_css:
   - assets/css/extra.css
   - assets/css/all.min.css
+  - assets/css/font-awesome.css
   - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css
 
 nav:

@@ -12,6 +12,82 @@ hide:
 
 ---
 
+<style>
+  .nav-container .content-wrapper {
+    justify-content: center;
+  }
+
+  .nav-container .content-item {
+    text-align: center;
+  }
+
+  .nav-container .content-item h3 {
+    margin: 0 auto;
+  }
+
+  .nav-container .lm-button {
+    position: relative;
+    left: 0;
+    margin: 1rem auto 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+<div class="nav-container" style="margin: 0 auto; padding: 0 1rem;">
+  <!-- 顶部导航栏 -->
+  <div class="navbar" id="navbar">
+    <button class="nav-item" data-tab="1exp">历 届 保 研</button>
+    <button class="nav-item" data-tab="2txt">经 验 文 档</button>
+    <button class="nav-item" data-tab="3ser">系 列 辅 导</button>
+    <button class="nav-item" data-tab="4adv">学 业 助 力</button>
+    <button class="nav-item" data-tab="5con">贡 献 指 南</button>
+
+    <div class="nav-decoration"></div>
+  </div>
+
+  <!-- 内容显示区 -->
+  <div class="content-wrapper">
+    <section id="1exp" class="content-item">
+      <h3 style="text-align: center;">汇集最近保研学长学姐经验，第一手干货分享。</h3>
+      <a class="lm-button lm-button-color" href="./experiences/2025/xqw/">
+        <span class="lm-button-name">Learn more</span>
+        <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+      </a>
+    </section>
+    <section id="2txt" class="content-item">
+      <h3 style="text-align: center;">技术文档、经验之谈、各种校内有用资源。</h3>
+      <a class="lm-button lm-button-color" href="./tutorials/main/">
+        <span class="lm-button-name">Learn more</span>
+        <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+      </a>
+    </section>
+    <section id="3ser" class="content-item">
+      <h3 style="text-align: center;">成功上岸的学长组成辅导团队，为在校学生提供系统化辅导。</h3>
+      <a class="lm-button lm-button-color" href="./series-pilots/main/">
+        <span class="lm-button-name">Learn more</span>
+        <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+      </a>
+    </section>
+    <section id="4adv" class="content-item">
+      <h3 style="text-align: center;">一些让知识变“资源”、让能力变“优势”的工具与平台。</h3>
+      <a class="lm-button lm-button-color" href="./advertise/">
+        <span class="lm-button-name">Learn more</span>
+        <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+      </a>
+    </section>
+    <section id="5con" class="content-item">
+      <h3 style="text-align: center;">欢迎每一位愿意分享经验的你参与 | 让平台成为持续成长的“接力站”</h3>
+      <a class="lm-button lm-button-color" href="./contribute/">
+        <span class="lm-button-name">Learn more</span>
+        <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24px" height="24px"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+      </a>
+    </section>
+  </div>
+</div>
+
+---
+
 ## 🎯 我们的使命
 我们致力于为在校本科生及校友提供：
 
@@ -27,51 +103,6 @@ hide:
 
 ---
 
-## 🧭 快速导航
-<div class="nav-container" style="display: center;">
-  <!-- 顶部导航栏 -->
-  <div class="navbar" id="navbar">
-    <button class="nav-item" data-tab="1exp">历 届 保 研</button>
-    <button class="nav-item" data-tab="2txt">经 验 文 档</button>
-    <button class="nav-item" data-tab="3ser">系 列 辅 导</button>
-    <button class="nav-item" data-tab="4adv">学 业 助 力</button>
-    <button class="nav-item" data-tab="5con">贡 献 指 南</button>
-
-    <div class="nav-decoration"></div>
-  </div>
-
-  <!-- 内容显示区 -->
-  <div class="content-wrapper">
-    <section id="1exp" class="content-item">
-      <p>汇集最近保研学长学姐经验，第一手干货分享。</p>
-      <p>在这里，你可以看到他们如何规划选校、准备科研、撰写文书、面试突破。<br>从失败反思中总结经验，从成功案例中汲取方法。这不仅是一个“经验库”，更是一条为下一届你铺设的“捷径”。</p>
-    </section>
-    <section id="2txt" class="content-item">
-    </section>
-    <section id="3ser" class="content-item">
-      <p>成功上岸的学长组成辅导团队，为在校学生提供系统化辅导。</p>
-      <p>辅导内容包括：保研路径解析、竞赛规划指导、科研项目抢点、文书指导技巧、面试模拟训练。每一堂辅导都基于真实案例、配合实践练习，帮助你从“准备中漫无目的”变为“有方法、有节奏、有目标”。</p>
-    </section>
-    <section id="4adv" class="content-item">
-      <p>一些让知识变“资源”、让能力变“优势”的工具与平台。</p>
-      <p></p>
-    </section>
-    <section id="5con" class="content-item">
-      <p>欢迎每一位愿意分享经验的你参与，让平台成为持续成长的“知识接力站”。</p>
-      <p>如果你是学长／学姐，或正在准备保研／出国，愿意将你的选校心得、科研经历、文书反思、失败教训整理成 Markdown 投稿：</p>
-      <ul>
-        <li> No.1 </li>
-        <li> No.2 </li>
-        <li>编辑审核后上线，并附作者简介（可选）</li>
-      </ul>
-      <p>通过你的贡献，下一代的“飞跃者”将少走弯路。</p>
-    </section>
-  </div>
-</div>
-
----
-
-
 ## 📬 加入我们 & 联系方式
 我们欢迎每一位愿意分享经验的你，欢迎投稿、欢迎分享。
 
@@ -84,7 +115,3 @@ hide:
 👉 请查看 [投稿说明](contribute/) 获取详细流程。
 
 ---
-
-<div style="text-align:center; margin-top:40px;">
-© 2025 某某大学 飞跃计划 编辑部 · 基于 MkDocs 构建 · 校内共享 · 转载请注明出处
-</div>
