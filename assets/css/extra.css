@@ -233,8 +233,8 @@
 .nav-container {
   width: 100%;
   max-width: 780px;
-  min-height: 150px;
-  background-color: #ffcc80;
+  min-height: 160px;
+  background-color: #fff;
   border-radius: 4px;
   display: flex;
   overflow: hidden;
@@ -418,4 +418,63 @@
   100% {
     transform: translateX(0);
   }
+}
+
+/*========== 了解更多按钮 ==========*/
+.lm-button {
+  width: 300px;
+  height: 60px;
+  padding: 0 25px;
+  margin: 1rem auto 0;
+  text-align: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+  transition: all .2s ease-out 0s;
+}
+.lm-button:hover > span {
+  top: -20px;
+  opacity: 0;
+}
+.lm-button:hover > .button-icon {
+  opacity: 1;
+  top: 50%;
+}
+
+.lm-button .lm-button-name {
+  color: white;
+}
+
+.lm-button-name,
+.button-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  transition: all .3s ease-out;
+  position: absolute;
+}
+
+.lm-button-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  opacity: 1;
+}
+
+.button-icon {
+  opacity: 0;
+  width: 2rem;
+  height: 1.5rem;
+  fill: #fff;
+  transition: all 0.3s ease-out;
+}
+
+.lm-button-color {
+  background-color: #119da4;
 }
