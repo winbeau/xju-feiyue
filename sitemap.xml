@@ -1,67 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://username.github.io/mywiki/index.html</loc>
+         <loc>https://username.github.io/mywiki/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/about.html</loc>
+         <loc>https://username.github.io/mywiki/AGENTS/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/advertise.html</loc>
+         <loc>https://username.github.io/mywiki/about/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/contribute.html</loc>
+         <loc>https://username.github.io/mywiki/advertise/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/issue.html</loc>
+         <loc>https://username.github.io/mywiki/contribute/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/experiences/2025/gzt.html</loc>
+         <loc>https://username.github.io/mywiki/issue/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/experiences/2025/main.html</loc>
+         <loc>https://username.github.io/mywiki/experiences/2025/gzt/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/experiences/2025/shy.html</loc>
+         <loc>https://username.github.io/mywiki/experiences/2025/main/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/experiences/2025/xqw.html</loc>
+         <loc>https://username.github.io/mywiki/experiences/2025/shy/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/experiences/2025/ycy.html</loc>
+         <loc>https://username.github.io/mywiki/experiences/2025/xqw/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/experiences/2025/zlh.html</loc>
+         <loc>https://username.github.io/mywiki/experiences/2025/ycy/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/series-pilots/main.html</loc>
+         <loc>https://username.github.io/mywiki/experiences/2025/zlh/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/series-pilots/senior-1.html</loc>
+         <loc>https://username.github.io/mywiki/series-pilots/main/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/series-pilots/senior-2.html</loc>
+         <loc>https://username.github.io/mywiki/series-pilots/senior-1/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/series-pilots/senior-3.html</loc>
+         <loc>https://username.github.io/mywiki/series-pilots/senior-2/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
     <url>
-         <loc>https://username.github.io/mywiki/series-pilots/ycy.html</loc>
+         <loc>https://username.github.io/mywiki/series-pilots/senior-3/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://username.github.io/mywiki/series-pilots/ycy/</loc>
+         <lastmod>2025-10-26</lastmod>
+    </url>
+    <url>
+         <loc>https://username.github.io/mywiki/tutorials/main/</loc>
          <lastmod>2025-10-26</lastmod>
     </url>
 </urlset>
