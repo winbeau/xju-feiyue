@@ -1,6 +1,9 @@
 site_name: 新疆大学 飞跃手册
 site_description: 为有志同学提供保研辅导 + 学长经验分享平台
 site_author: 计科院软开实验室
+site_url: https://username.github.io/mywiki/
+site_dir: site
+use_directory_urls: true
 
 theme:
     name: material
@@ -62,7 +65,7 @@ extra_css:
 nav:
     - 首页: index.md
     - 关于我们: about.md
-    - 历届经验:
+    - 历届保研:
       - 2025届经验:
         - 总体: experiences/2025/main.md
         - 郭子腾(UCAS): experiences/2025/gzt.md
@@ -70,6 +73,8 @@ nav:
         - 夏清伟(BIT): experiences/2025/xqw.md
         - 严从营(USTC): experiences/2025/ycy.md
         - 庄凌浩(PUMC): experiences/2025/zlh.md
+    - 经验文档:
+      - 汇总: tutorials/main.md
     - 系列辅导: 
       - 扬帆起航: series-pilots/main.md
       - 严从营: series-pilots/ycy.md
