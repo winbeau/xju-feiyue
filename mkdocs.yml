@@ -5,7 +5,7 @@ site_author: 计科院软开实验室
 theme:
     name: material
     features:
-        # - navigation.tabs
+        - navigation.tabs
         - navigation.top
         - content.code.copy # Code Block Copy Button
     # ------ Dark and Light Mode ------
@@ -28,7 +28,7 @@ theme:
             icon: material/brightness-4
             name: Switch to system preference
     # ------ Dark and Light Mode ------
-repo_url: https://github.com/winbeau/mkdocs-wiki
+repo_url: https://github.com/winbeau/xju-feiyue
 markdown_extensions:
     - pymdownx.highlight: # Code Block
         linenums: true
@@ -63,13 +63,14 @@ nav:
     - 历届经验:
       - 2025届经验:
         - 总体: experiences/2025/main.md
-        - 郭子腾(UCAS): experiences/2025/郭子腾.md
-        - 孙海洋(ZJU): experiences/2025/孙海洋.md
-        - 夏清伟(BIT): experiences/2025/夏清伟.md
-        - 严从营(USTC): experiences/2025/严从营.md
-        - 庄凌浩(PUMC): experiences/2025/庄凌浩.md
+        - 郭子腾(UCAS): experiences/2025/gzt.md
+        - 孙海洋(ZJU): experiences/2025/shy.md
+        - 夏清伟(BIT): experiences/2025/xqw.md
+        - 严从营(USTC): experiences/2025/ycy.md
+        - 庄凌浩(PUMC): experiences/2025/zlh.md
     - 系列辅导: 
       - 扬帆起航: series-pilots/main.md
+      - 严从营: series-pilots/ycy.md
       - senior-1: series-pilots/senior-1.md
       - senior-2: series-pilots/senior-2.md
       - senior-3: series-pilots/senior-3.md

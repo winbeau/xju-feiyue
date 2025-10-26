@@ -1,0 +1,244 @@
+<style>
+@import 'compass/css3';
+
+$n: 7;
+$gg: 1em;
+$d: 5em;
+$g: .125em;
+$b: .375em;
+$r: $b/2;
+$o: -1*($b + $g);
+$m: $g - $o;
+$fs: 2.5;
+$ro: 50%;
+$rm: calc(50% - #{$r});
+$ri: calc(50% - #{$b});
+
+@function arrow($ua, $i, $m: 1, $in: 0, $dbl: 0, $sgn: 1) {
+	$a0: $i*$ua;
+	$a1: $a0 + $sgn*$m*$ua;
+	$a2: $a0 + $sgn*$ua;
+	$list: ();
+
+	$xo: 50% + $ro*cos($a0);
+	$yo: 50% + $ro*sin($a0);
+
+	$list: $list, $xo $yo;
+
+	@if $dbl > 0 {
+		$list: $list, 50% + $ro*cos($a1) 50% + $ro*sin($a1)
+	}
+
+	$list: $list, calc(50% + #{$rm}*#{cos($a2)}) calc(50% + #{$rm}*#{sin($a2)});
+
+	@if $dbl > 0 {
+		$list: $list, calc(50% + #{$ri}*#{cos($a1)}) calc(50% + #{$ri}*#{sin($a1)})
+	}
+
+	$list: $list, calc(50% + #{$ri}*#{cos($a0)}) calc(50% + #{$ri}*#{sin($a0)});
+
+	@if $in > 0 {
+		$list: $list, calc(50% + #{$rm}*#{cos($a1)}) calc(50% + #{$rm}*#{sin($a1)})
+	}
+
+	@return $list, $xo $yo
+}
+
+@function spike($ua, $i, $vo: 0, $in: 0) {
+	$a0: ($i - .5)*$ua;
+	$av: $a0 + ($vo + .5)*$ua;
+	$a1: $a0 + $ua;
+	$list: ();
+
+	$ao0: if($in < 1, $av, $a0);
+	$ai0: if($in < 1, $a0, $av);
+
+	$xo: 50% + $ro*cos($ao0);
+	$yo: 50% + $ro*sin($ao0);
+
+	$list: $list, $xo $yo;
+
+	@if $in > 0 {
+		$list: $list, 50% + $ro*cos($a1) 50% + $ro*sin($a1)
+	}
+	@else {
+		$list: $list, calc(50% + #{$ri}*#{cos($a1)}) calc(50% + #{$ri}*#{sin($a1)})
+	}
+
+	$list: $list, calc(50% + #{$ri}*#{cos($ai0)}) calc(50% + #{$ri}*#{sin($ai0)});
+
+	@return $list, $xo $yo
+}
+
+@function double($ua, $i) {
+	$a0: $i*$ua;
+	$a1: $a0 + .25*$ua;
+	$a2: $a0 + .5*$ua;
+	$a3: $a1 + .5*$ua;
+	$a4: $a0 + $ua;
+	$list: ();
+
+	$xo: 50% + $ro*cos($a1);
+	$yo: 50% + $ro*sin($a1);
+
+	@return $list,
+		$xo $yo,
+		calc(50% + #{$ri}*#{cos($a2)}) calc(50% + #{$ri}*#{sin($a2)}),
+		calc(50% + #{$ri}*#{cos($a0)}) calc(50% + #{$ri}*#{sin($a0)}),
+		$xo $yo,
+		50% + $ro*cos($a2) 50% + $ro*sin($a2),
+		50% + $ro*cos($a4) 50% + $ro*sin($a4),
+		calc(50% + #{$ri}*#{cos($a3)}) calc(50% + #{$ri}*#{sin($a3)}),
+		50% + $ro*cos($a2) 50% + $ro*sin($a2),
+		$xo $yo
+}
+
+@function rhombus($ua, $i) {
+	$a0: $i*$ua;
+	$a1: $a0 + .5*$ua;
+	$a2: $a0 + $ua;
+	$list: ();
+
+	$xo: 50% + $ro*cos($a1);
+	$yo: 50% + $ro*sin($a1);
+
+	@return $list,
+		$xo $yo,
+		calc(50% + #{$rm}*#{cos($a2)}) calc(50% + #{$rm}*#{sin($a2)}),
+		calc(50% + #{$ri}*#{cos($a1)}) calc(50% + #{$ri}*#{sin($a1)}),
+		calc(50% + #{$rm}*#{cos($a0)}) calc(50% + #{$rm}*#{sin($a0)}),
+		$xo $yo
+}
+
+@function hexagon($ua, $i) {
+	$a0: $i*$ua;
+	$a1: $a0 + .25*$ua;
+	$a2: $a1 + .5*$ua;
+	$a3: $a0 + $ua;
+	$list: ();
+
+	$xo: 50% + $ro*cos($a1);
+	$yo: 50% + $ro*sin($a1);
+
+	@return $list,
+		$xo $yo,
+		50% + $ro*cos($a2) 50% + $ro*sin($a2),
+		calc(50% + #{$rm}*#{cos($a3)}) calc(50% + #{$rm}*#{sin($a3)}),
+		calc(50% + #{$ri}*#{cos($a2)}) calc(50% + #{$ri}*#{sin($a2)}),
+		calc(50% + #{$ri}*#{cos($a1)}) calc(50% + #{$ri}*#{sin($a1)}),
+		calc(50% + #{$rm}*#{cos($a0)}) calc(50% + #{$rm}*#{sin($a0)}),
+		$xo $yo
+}
+
+@function points($n, $fn-name, $fn-args) {
+	$ua: 2*pi()/$n;
+	$list: ();
+	$x0: 100%;
+	$y0: 50%;
+
+	@for $i from 0 to $n {
+		$list: $list, call($fn-name, $ua, $i, $fn-args...), $x0 $y0
+	}
+
+	@return $list
+}
+
+body {
+	$s: $fs*($d + 2*$m);
+	display: grid;
+	grid-template-columns: repeat(var(--n, #{$n}), $s);
+	grid-gap: $gg;
+	place-content: center;
+	margin: 0;
+	min-height: 100vh;
+	background:
+		repeating-linear-gradient(45deg, #000, #000 2px, transparent 0, transparent 7px) #555;
+	text-align: center;
+
+	@for $i from 1 to $n {
+		@media (max-width: ($n - $i + 1)*$s + ($n - $i + 2)*$gg) {
+			--n: #{$n - $i}
+		}
+	}
+}
+
+h3 {
+	grid-column: 1/ span var(--n);
+	color: #fff;
+	font: 2em z003, segoe script, comic sans ms, purisa, cursive
+}
+
+.circ {
+	box-sizing: border-box;
+	display: grid;
+	place-content: center;
+	position: relative;
+	margin: $m;
+	padding-left: .25em;
+	width: $d; height: $d;
+	border-radius: 50%;
+	font: 900 #{$fs*1em}/ 1.25 z003, segoe script, comic sans ms, cursive;
+	filter: drop-shadow(1px 1px #fff);
+
+	&::after {
+		position: absolute;
+		top: $o; right: $o; bottom: $o; left: $o;
+		background: inherit;
+		content: ''
+	}
+}
+
+.circ:nth-of-type(1)::after {
+	clip-path: polygon(#{points(36, arrow, ())})
+}
+
+.circ:nth-of-type(2)::after {
+	clip-path: polygon(#{points(36, rhombus, ())})
+}
+
+.circ:nth-of-type(3)::after {
+	clip-path: polygon(#{points(36, hexagon, ())})
+}
+
+.circ:nth-of-type(4)::after {
+	clip-path: polygon(points(36, spike, ()))
+}
+
+.circ:nth-of-type(5)::after {
+	clip-path: polygon(points(36, spike, (0, 1)))
+}
+
+.circ:nth-of-type(6)::after {
+	clip-path: polygon(points(36, spike, (1)))
+}
+
+.circ:nth-of-type(7)::after {
+	clip-path: polygon(points(36, spike, (-1)))
+}
+
+.circ:nth-of-type(8)::after {
+	clip-path: polygon(#{points(36, arrow, (.5, 1))})
+}
+
+.circ:nth-of-type(9)::after {
+	clip-path: polygon(#{points(36, arrow, (.5, 1, 0, -1))})
+}
+
+.circ:nth-of-type(10)::after {
+	clip-path: polygon(#{points(36, arrow, (.5, 1, 1))})
+}
+
+.circ:nth-of-type(11)::after {
+	clip-path: polygon(#{points(36, arrow, (.5, 1, 1, -1))})
+}
+
+.circ:nth-of-type(12)::after {
+	clip-path: polygon(#{points(24, double, ())})
+}
+</style>
+
+- let data = ['#f6b096', '#d19db4', '#f5b4d2', '#d0aad1', '#cf82b6', '#7f96cc', '#57a7b2', '#dbe285', '#fff7b6', '#fbd5a6', '#f5ad72', '#f8aa48'], n = data.length;
+
+h3 Can you figure out how these were made without checking the code?
+
+.circ(style=`background: ${data[9]}`) Hello, Gorgeous!
