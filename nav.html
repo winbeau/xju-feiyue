@@ -1,84 +1,188 @@
 <style>
-/* From Uiverse.io by janisar-hyder */ 
-img {
-  display: block;
-  max-width: 60%;
+
+body {
+  background: #37474f;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  overflow: hidden;
 }
 
-.stack {
-  width: 55%;
-  max-width: 400px;
-  transition: 0.25s ease;
-  &:hover {
-    transform: rotate(5deg);
-    .card:before {
-      transform: translatey(-2%) rotate(-4deg);
-    }
-    .card:after {
-      transform: translatey(2%) rotate(4deg);
-    }
-  }
-}
-
-.card {
-  aspect-ratio: 3 / 2;
-  border: 4px solid;
-  background-color: #fff;
+#navbarContainer{
+  width: 400px;
+  min-width: 400px;
+  height: 70vh;
+  background-color: #ffcc80;
+  border-radius: 20px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  overflow: hidden;
   position: relative;
-  transition: 0.15s ease;
-  cursor: pointer;
-  padding: 5% 5% 15% 5%;
-  &:before,
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    border: 4px solid;
-    background-color: #fff;
-    transform-origin: center center;
-    z-index: -1;
-    transition: 0.15s ease;
-    top: 0;
-    left: 0;
-  }
-
-  &:before {
-    transform: translatey(-2%) rotate(-6deg);
-  }
-
-  &:after {
-    transform: translatey(2%) rotate(6deg);
-  }
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
-.image {
+
+#navbar{
   width: 100%;
-  border: 4px solid;
-  background-color: #eee;
-  aspect-ratio: 1 / 1;
-  position: relative;
+  height: 60px;
+  background-color: #fff;
+  position: absolute;
 }
 
-.browser-warning {
-  margin-bottom: 4rem;
+#bubbleWrapper{
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  bottom: 25px;
 }
 
-@supports (aspect-ratio: 1 / 1) {
-  .browser-warning {
-    display: none;
+.bubble{
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  bottom: 85px;
+  border-radius: 50%;
+  z-index: 1;
+  transform: translateY(120%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon{
+  opacity: 0;
+}
+
+#bubble1{
+  transform: translateY(0%);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  > span{
+    opacity: 0.7;
   }
+}
+
+#bgWrapper{
+  filter: url(#goo);
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 60px;
+}
+#bg{
+  background-color: #ffcc80;
+  width: 120%;
+  height: 100%;
+  margin-left: -10%;
+}
+#bgBubble{
+  position: absolute;
+  background-color: #ffcc80;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  bottom: -50px;
+  left: 50px;
+  transform: translateX(-50%);
+}
+
+#menuWrapper{
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.menuElement{
+  opacity: 0.4;
+  transform: translateY(100%);
+  cursor: pointer;
+  &:hover{
+    opacity: 0.5;
+  }
+}
+
+#contentWrapper{
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h2{
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 400;
+  }
+}
+.content{
+  display: none;
+  opacity: 0;
 }
 </style>
 
-<!-- From Uiverse.io by janisar-hyder -->
-<p class="browser-warning">
-  If this looks wonky to you it's because this browser doesn't support the CSS
-  property 'aspect-ratio'.
-</p>
-<div class="stack">
-  <div class="card">
-    <div class="image"></div>
+<script>
+ function move(id, position, color) {
+    var tl = gsap.timeline();
+    tl.to("#bgBubble", {duration: 0.15, bottom: "-30px", ease: "ease-out"}, 0)
+      .to("#bubble1", {duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out",}, 0)
+      .to("#bubble2", {duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out",}, 0)
+      .to("#bubble3", {duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out",}, 0)
+      .to("#bubble4", {duration: 0.1, y: "120%", boxShadow: 'none', ease: "ease-out",}, 0)
+      .to(".icon", {duration: 0.05, opacity: 0, ease: "ease-out",}, 0)
+      .to("#bgBubble", {duration: 0.2, left: position, ease: "ease-in-out"}, 0.1)
+      .to("#bgBubble", {duration: 0.15, bottom: "-50px", ease: "ease-out"}, '-=0.2')
+      .to(`#bubble${id}`, {duration: 0.15, y: "0%", opacity: 1, boxShadow: '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)', ease: "ease-out"}, '-=0.1')
+      .to(`#bubble${id}> span`, {duration: 0.15, y: "0%", opacity: 0.7, ease: "ease-out"}, '-=0.1')
+      .to("#navbarContainer", {duration: 0.3, backgroundColor: color, ease: "ease-in-out"}, 0)
+      .to("#bg", {duration: 0.3, backgroundColor: color, ease: "ease-in-out"}, 0)
+      .to("#bgBubble", {duration: 0.3, backgroundColor: color, ease: "ease-in-out"}, 0)
+  }
+</script>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div id="navbarContainer">
+  <div id="navbar">
+    <div id="bubbleWrapper">
+      <div id="bubble1" class="bubble"><span class="icon"><i class="fas fa-home"></i></span></div>
+      <div id="bubble2" class="bubble"><span class="icon"><i class="fab fa-twitter"></i></span></div>
+      <div id="bubble3" class="bubble"><span class="icon"><i class="fas fa-bell"></i></span></div>
+      <div id="bubble4" class="bubble"><span class="icon"><i class="fas fa-user"></i></span></div>
+    </div>
+    <div id="menuWrapper">
+      <div id="menu1" class="menuElement" onclick="move('1', '50px', '#ffcc80')"><i class="fas fa-home"></i></div>
+      <div id="menu2" class="menuElement" onclick="move('2', '150px', '#81d4fa')"><i class="fab fa-twitter"></i></div>
+      <div id="menu3" class="menuElement" onclick="move('3', '250px', '#c5e1a5')"><i class="fas fa-bell"></i></div>
+      <div id="menu4" class="menuElement" onclick="move('4', '350px', '#ce93d8')"><i class="fas fa-user"></i></div>
+    </div>
+  </div>
+  <div id="bgWrapper">
+    <div id="bg"></div>
+    <div id="bgBubble"></div>
   </div>
 </div>
+
+  <svg width="0" height="0" >
+    <defs>
+      <filter id="goo">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="20" result="blur" id="blurFilter"/>
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 30 -15" result="goo" />
+        <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+      </filter>
+    </defs>
+  </svg>
+
+</body>
+
+</html>
 

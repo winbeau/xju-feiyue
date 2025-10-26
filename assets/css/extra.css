@@ -1,7 +1,33 @@
+/* 调整 Material 主题左侧目录栏宽度 */
+.md-sidebar--primary {
+  width: 180px;       /* 左侧导航栏宽度 */
+}
+
+.md-sidebar__scrollwrap {
+  width: 180px;       /* 同步内部滚动容器宽度 */
+}
+
+/* 为了防止内容区域被遮挡，也要调整内容区域的 margin */
+.md-main__inner {
+  margin-left: 180px;
+}
+
+.md-typeset h1 {
+  margin-bottom: 0.5em;  /* 原来大约 1.6em，可以改成 0.5em 或 0.8em */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
 .nav-stack {
-  width: 55%;
-  max-width: 400px;
+  width: 80%;
+  /* max-width: 400px; */ 
   transition: 0.25s ease;
+  padding: 0;
   &:hover {
     transform: rotate(5deg);
     .nav-card:before {
@@ -15,7 +41,7 @@
 
 .nav-card {
   aspect-ratio: 3 / 2;
-  border: 4px solid;
+  border: 2px solid #585858;
   background-color: #fff;
   position: relative;
   transition: 0.15s ease;
@@ -28,7 +54,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    border: 4px solid;
+    border: 2px solid #585858;
     background-color: #fff;
     transform-origin: center center;
     z-index: -1;
@@ -44,4 +70,157 @@
   &:after {
     transform: translatey(2%) rotate(6deg);
   }
+}
+
+.person-card {
+  width: 540px;
+  height:300px;
+  background: linear-gradient(#f8f8f8, #fff);
+  box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.4);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin: 1.5rem;
+}
+
+.person-card .pc_left {
+  position: absolute;
+  width: 180px;
+  height: 100%;
+  background: linear-gradient(#de685e, #ef786e);
+  transition: width 0.4s, z-index 0s 0.4s;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.person-card:hover .pc_left {
+  width: 100%;
+  border-radius: 0 5px 5px 0;
+  z-index: 3;
+  transition: width 0.4s, z-index 0s 0s;
+}
+
+.person-card .pc_left .pc_l_avator {
+  width: 180px;
+  height: 100%;
+  position: relative;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding-top: 1rem;
+}
+
+/* 浅色分隔线 */
+.person-card .pc_left .pc_l_avator::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: -2px;
+  height: 80%;
+  border-left: 2px solid rgba(0,0,0,0.025);
+}
+
+.person-card .pc_left .pc_l_info {
+  width: 360px;
+  float: left;
+  position: absolute;
+  left: 180px;
+  height: 100%;
+}
+
+.person-card .pc_right {
+  width: 360px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  padding: 1rem;
+}
+
+.avator {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.avator:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.5),
+    0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.avator-name {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pc_l_avator a {
+  display: block;
+  line-height: 0;
+  cursor: pointer;
+}
+
+/* 左侧信息样式 */
+.person-card .pc_left .pc_l_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  color: white;
+}
+
+.info-university {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.info-name-en {
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.9;
+  line-height: 1.3;
+}
+
+/* 右侧信息样式 */
+.person-card .pc_right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.6;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #555;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.info-value {
+  color: #333;
+  flex: 1;
 }
