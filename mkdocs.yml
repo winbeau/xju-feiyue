@@ -49,13 +49,15 @@ markdown_extensions:
 
 extra_javascript:
   - assets/js/extra.js
+  - assets/js/gsap.min.js
   - assets/js/katex.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js
 
 extra_css:
-  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css
   - assets/css/extra.css
+  - assets/css/all.min.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css
 
 nav:
     - 首页: index.md
@@ -74,7 +76,7 @@ nav:
       - senior-1: series-pilots/senior-1.md
       - senior-2: series-pilots/senior-2.md
       - senior-3: series-pilots/senior-3.md
-    - 告示栏: advertise.md
+    - 学业助力: advertise.md
     - 贡献指南: contribute.md
     - 讨论区: issue.md
 

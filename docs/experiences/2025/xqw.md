@@ -23,6 +23,25 @@ padding: 0;
     --hover-bg: color-mix(in srgb, var(--primary-color) 12%, transparent);
 }
 
+.md-sidebar--secondary .md-nav__item--active > .md-nav__link,
+.md-sidebar--secondary .md-nav__link--active {
+    background: none !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    text-decoration: underline;
+    text-decoration-color: var(--md-accent-fg-color, currentColor);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+.md-sidebar--secondary .md-nav__item--active > .md-nav__link::before,
+.md-sidebar--secondary .md-nav__link--active::before,
+.md-sidebar--secondary .md-nav__item--active > .md-nav__link::after,
+.md-sidebar--secondary .md-nav__link--active::after {
+    display: none !important;
+}
+
 /* MkDocs Material 适配：移除 body 全局样式，使用主题默认样式 */
 .md-content {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -625,6 +644,7 @@ transform: translateX(4px);
 
 .nav-item.active {
 color: var(--primary-color);
+background: transparent !important;
 }
 
 .nav-item a {
