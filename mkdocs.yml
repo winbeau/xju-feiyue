@@ -1,4 +1,7 @@
-site_name: MkDocs Wiki Test
+site_name: 新疆大学 飞跃手册
+site_description: 为有志同学提供保研辅导 + 学长经验分享平台
+site_author: 计科院软开实验室
+
 theme:
     name: material
     features:
@@ -45,15 +48,32 @@ markdown_extensions:
     - pymdownx.superfences
 
 extra_javascript:
-  - javascripts/katex.js
+  - assets/js/extra.js
+  - assets/js/katex.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js
 
 extra_css:
   - https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css
+  - assets/css/extra.css
 
 nav:
     - 首页: index.md
-    - 测试课程:
-        - 课程简介: test-course/intro/main.md
-        - 笔记: test-course/note/main.md
+    - 关于我们: about.md
+    - 历届经验:
+      - 2025届经验:
+        - 总体: experiences/2025/main.md
+        - 郭子腾(UCAS): experiences/2025/郭子腾.md
+        - 孙海洋(ZJU): experiences/2025/孙海洋.md
+        - 夏清伟(BIT): experiences/2025/夏清伟.md
+        - 严从营(USTC): experiences/2025/严从营.md
+        - 庄凌浩(PUMC): experiences/2025/庄凌浩.md
+    - 系列辅导: 
+      - 扬帆起航: series-pilots/main.md
+      - senior-1: series-pilots/senior-1.md
+      - senior-2: series-pilots/senior-2.md
+      - senior-3: series-pilots/senior-3.md
+    - 告示栏: advertise.md
+    - 贡献指南: contribute.md
+    - 讨论区: issue.md
+
