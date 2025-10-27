@@ -108,7 +108,7 @@ hide:
 
 - 投稿邮箱：**winbeau2381@gmail.com**
 
-- GitHub 仓库：[github.com/winbeau/xju-feiyue](https://github.com/windeau/xju-feiyue)
+- GitHub 仓库：[github.com/winbeau/xju-feiyue](https://github.com/winbeau/xju-feiyue)
 
 - 若你愿意做 PDF/Word 格式上传，也可注明版本，我们将转 Markdown 格式发布。
 

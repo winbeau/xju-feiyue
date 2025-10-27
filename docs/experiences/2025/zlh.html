@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>个人展示（PPT 转 HTML，保留图片为链接）</title>
+  <style>
+    :root{
+      --bg:#0f172a;
+      --panel:#0b1022;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --border:#1e293b;
+      --brand:#60a5fa;
+      --accent:#22d3ee;
+      --link:#93c5fd;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:linear-gradient(180deg,#0b1022 0%,#0f172a 100%);
+      font:16px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+    }
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{
+      max-width:1100px;
+      margin:40px auto;
+      padding:0 20px;
+      display:grid;
+      gap:28px;
+      grid-template-columns:minmax(0,1fr) 300px;
+    }
+    .main{
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:24px 26px 42px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    header h1{margin:0 0 6px 0;font-size:28px}
+    header p{margin:0;color:var(--muted)}
+    section{padding:16px 0;border-top:1px dashed #22314a}
+    section:first-of-type{border-top:none}
+    h2{
+      font-size:22px;margin:6px 0 10px;
+      display:flex;align-items:center;gap:10px
+    }
+    h2 .mark{
+      width:8px;height:20px;border-radius:4px;
+      background:linear-gradient(180deg,var(--brand),var(--accent));
+      display:inline-block
+    }
+    ul{margin:8px 0 8px 22px;padding:0}
+    li{margin:6px 0}
+    .note{color:var(--muted);font-size:14px}
+    .link-placeholder{
+      border:1px dashed #334155;
+      background:rgba(148,163,184,0.08);
+      border-radius:10px;
+      padding:10px 12px;
+      margin:10px 0;
+      font-size:14px
+    }
+    /* right toc */
+    .sidenav{
+      position:sticky;top:24px;height:fit-content;
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:16px 14px;
+    }
+    .sidenav h3{margin:0 0 8px;font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px}
+    .toc{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+    .toc a{display:block;padding:8px 10px;border-radius:10px;border:1px solid transparent;color:var(--text)}
+    .toc a.active{
+      background:linear-gradient(180deg, rgba(96,165,250,.18), rgba(34,211,238,.16));
+      border-color:#1e293b;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.04), 0 6px 18px rgba(34,211,238,.08);
+    }
+    @media (max-width:960px){
+      .wrap{grid-template-columns:1fr}
+      .sidenav{position:static;order:-1}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="main">
+      <header>
+        <h1>个 人 展 示</h1>
+        <p class="note">来源：PPT（已转换为 HTML，图片以“链接占位”保留）</p>
+      </header>
+
+      <section id="meta">
+        <h2><span class="mark"></span>基本信息</h2>
+        <ul>
+          <li>日期：2025.09</li>
+          <li>学生：庄凌浩</li>
+        </ul>
+        <div class="link-placeholder">图片占位：封面（请在此处粘贴图片链接，比如 https://... ）</div>
+      </section>
+
+      <section id="toc-slide">
+        <h2><span class="mark"></span>目录 Contents</h2>
+        <ol style="margin-left:22px">
+          <li>PART 01 个人背景</li>
+          <li>PART 02 竞赛与奖励</li>
+          <li>PART 03 科研经历</li>
+          <li>PART 04 论文成果</li>
+          <li>PART 05 研究生规划</li>
+        </ol>
+        <div class="link-placeholder">图片占位：目录页</div>
+      </section>
+
+      <section id="bg">
+        <h2><span class="mark"></span>PART 01 个人背景</h2>
+        <ul>
+          <li>2022.09 至今：新疆大学（学习经历）</li>
+          <li>拿到 Offer：西安交通大学计算机学院、南开大学软件学院</li>
+          <li>去向：北京协和医学院</li>
+        </ul>
+        <div class="link-placeholder">图片占位：背景页</div>
+      </section>
+
+      <section id="awards">
+        <h2><span class="mark"></span>PART 02 竞赛与奖励</h2>
+        <h3>学科竞赛</h3>
+        <ul>
+          <li><strong>2022–2023（大一）</strong>：ICPC 中国西部赛 银牌；ACM-ICPC 新疆省 铜牌；蓝桥杯省赛 A 组 一等奖；蓝桥杯国赛 A 组 国家级三等奖；等</li>
+          <li><strong>2023–2024（大二）</strong>：天梯赛全国决赛 个人三等奖、团队二等奖；CCPC 全国邀请赛 金牌/银牌；ACM-ICPC 新疆省 金牌；CCPC 新疆省 金牌；等</li>
+          <li><strong>2024–2025（大三）</strong>：ACM-ICPC 亚洲区域赛 亚洲铜牌；CCPC 国赛区域赛 国家铜牌；数学建模 省级一等奖；等</li>
+          <li>累计：12 项国家级奖项 + 9 项省级奖项</li>
+        </ul>
+        <div class="link-placeholder">图片占位：竞赛页</div>
+      </section>
+
+      <section id="research">
+        <h2><span class="mark"></span>PART 03 科研经历</h2>
+        <h3>西安交通大学软件学院 · 医学影像实验室（2024.06–2024.09）</h3>
+        <ul>
+          <li>导师：李钟毓</li>
+          <li>方向：基于大规模多模态生物医学数据的计算机视觉/深度学习 —— 模式发现、智慧医疗辅助诊断等</li>
+          <li>研究主题（提要）：结合<strong>预训练</strong>与<strong>主动学习</strong>，在高标注成本与长尾分布背景下提升性能与数据利用效率</li>
+        </ul>
+        <div class="link-placeholder">图片占位：科研经历页</div>
+      </section>
+
+      <section id="papers">
+        <h2><span class="mark"></span>PART 04 论文成果</h2>
+
+        <h3>血细胞分类（2024.07–2024.10）</h3>
+        <ul>
+          <li>[1] Active Learning Guided Self Supervised Learning for Imbalanced Blood Cell Classification，<em>EMBC 2025</em>，一作（已接收）</li>
+          <li>[2] MDS-MK: Megakaryocyte Database for Myelodysplastic Syndrome Diagnosis，<em>Scientific Data</em> 2025，一作（二审）</li>
+          <li>方法要点：HSV 颜色粗定位提取细胞；特征空间聚类建立多原型；按簇规模设反比阈值筛选，强化尾部样本的自监督学习</li>
+        </ul>
+        <div class="link-placeholder">图片占位：血细胞分类示意</div>
+
+        <h3>个性化联邦学习（2024.12–2025.08）</h3>
+        <ul>
+          <li>[3] pFedSAM: Personalized Federated Learning of Segment Anything Model for Medical Image Segmentation，<em>ICASSP 2025</em>，共同一作（在投）</li>
+          <li>[4] Divide, Conquer and Unite: Hierarchical Style-Recalibrated Prototype Alignment for Federated Medical Image Segmentation，<em>AAAI 2025</em>，五作（出分 77764）</li>
+          <li>要点：基于 SAM 的分割能力与 LoRA 低成本微调；MoE 以增强个性化；蒸馏以提升全局泛化</li>
+        </ul>
+        <div class="link-placeholder">图片占位：个性化联邦学习示意</div>
+
+        <h3>具身智能 / 机器人（2025.04–2025.08）</h3>
+        <ul>
+          <li>[5] Towards Affordance-Aware Robotic Dexterous Grasping with Human-like Priors，<em>AAAI 2025</em>，共同一作（已通过，出分 977665）</li>
+          <li>[6] High-Fidelity Simulated Data Generation for Real-World Zero-Shot Robotic Manipulation Learning with Gaussian Splatting，<em>RA-L 2025</em>（在投）</li>
+          <li>要点：类人手部先验引导策略；“负向功能感知”避开敏感区域；残差强化学习 + 教师-学生蒸馏</li>
+        </ul>
+        <div class="link-placeholder">图片占位：机器人抓取示意</div>
+      </section>
+
+      <section id="starter">
+        <h2><span class="mark"></span>科研入门焚决（摘录）</h2>
+        <ul>
+          <li>快速理论入门：李宏毅机器学习课程（特定日期档案）；可参考 CS231N 专栏（重点章 9/12/13/16）</li>
+          <li>LLM 相关：<a href="https://github.com/karpathy/nanoGPT" target="_blank" rel="noopener">从零开始训练大模型（示例）</a>（示意）</li>
+          <li>Python / NumPy：<a href="https://cs231n.github.io/python-numpy-tutorial/" target="_blank" rel="noopener">CS231N Python+NumPy 教程</a>；Jupyter；Linux / Git 基础</li>
+          <li>PyTorch：官方文档与示例；推荐“小土堆”视频教程</li>
+          <li>论文写作：LaTeX / Overleaf / BibTeX；文献管理：Zotero；平台：arXiv、PapersWithCode、Google Scholar</li>
+        </ul>
+        <div class="link-placeholder">图片占位：资源页</div>
+      </section>
+
+      <section id="advice">
+        <h2><span class="mark"></span>找导师 / 方向建议（摘录）</h2>
+        <ul>
+          <li>导师与方向的重要性常高于“title”本身；实习质量优先</li>
+          <li>方向建议：
+            <ul>
+              <li>T0：多模态、大模型、推荐、具身智能、Agent</li>
+              <li>T1：联邦学习、自动驾驶、AI 安全、医学 AI、AI infra</li>
+              <li>不建议：纯 CV、脑机接口、量子计算、数据库、元宇宙…（原文表述）</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section id="plan">
+        <h2><span class="mark"></span>PART 05 研究生规划（摘要）</h2>
+        <p>以科学研究为重心，面向实际问题与成果转化；在计算机视觉、深度学习基础上继续拓展相关前沿方向并争取更高学术成果。</p>
+      </section>
+
+      <section id="contact">
+        <h2><span class="mark"></span>Plus ME（联系）</h2>
+        <p>加我前备注自己的专业班级姓名。</p>
+        <div class="link-placeholder">图片占位：联系方式二维码/名片</div>
+      </section>
+
+      <section id="thanks">
+        <h2><span class="mark"></span>感谢倾听</h2>
+        <p>日期：2025.09 · 学生：庄凌浩</p>
+      </section>
+    </main>
+
+    <aside class="sidenav" aria-label="目录">
+      <h3>目录</h3>
+      <nav>
+        <ul class="toc" id="toc">
+          <li><a href="#meta">基本信息</a></li>
+          <li><a href="#toc-slide">目录 Contents</a></li>
+          <li><a href="#bg">PART 01 个人背景</a></li>
+          <li><a href="#awards">PART 02 竞赛与奖励</a></li>
+          <li><a href="#research">PART 03 科研经历</a></li>
+          <li><a href="#papers">PART 04 论文成果</a></li>
+          <li><a href="#starter">科研入门焚决</a></li>
+          <li><a href="#advice">找导师 / 方向建议</a></li>
+          <li><a href="#plan">PART 05 研究生规划</a></li>
+          <li><a href="#contact">Plus ME（联系）</a></li>
+          <li><a href="#thanks">感谢倾听</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script>
+    const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+    const sections = tocLinks.map(a => document.querySelector(a.getAttribute('href')));
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          tocLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+    sections.forEach(sec=>sec && io.observe(sec));
+    tocLinks.forEach(a=>a.addEventListener('click',()=>{
+      tocLinks.forEach(x=>x.classList.remove('active'));
+      a.classList.add('active');
+    }));
+  </script>
+</body>
+</html>

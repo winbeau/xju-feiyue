@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>孙海洋 - PDF 转 HTML</title>
+  <style>
+    :root{
+      --bg:#0f172a;
+      --card:#0b1022;
+      --text:#e5e7eb;
+      --muted:#9ca3af;
+      --brand:#60a5fa;
+      --accent:#22d3ee;
+      --border:#1f2937;
+      --link:#93c5fd;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#0b1022 0%,#0f172a 100%);
+      color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial;
+    }
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{
+      display:grid;
+      grid-template-columns: minmax(0,1fr) 300px;
+      gap:28px;
+      max-width:1100px;
+      margin:40px auto;
+      padding:0 20px;
+    }
+    .main{
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:28px 28px 48px;
+      box-shadow:0 10px 30px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.03);
+    }
+    header h1{
+      margin:0 0 8px 0;
+      font-size:28px;
+      letter-spacing:.5px;
+    }
+    header p{margin:0;color:var(--muted)}
+    section{padding:16px 0;border-top:1px dashed #22314a}
+    section:first-of-type{border-top:none}
+    h2{
+      margin:6px 0 12px;
+      font-size:22px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    h2 .mark{
+      width:8px;height:20px;border-radius:4px;
+      background:linear-gradient(180deg,var(--brand),var(--accent));
+      display:inline-block;
+    }
+    ul{margin:8px 0 8px 20px;padding:0}
+    li{margin:6px 0}
+    code,kbd{
+      background:#0d1227;
+      border:1px solid #1a2442;
+      padding:1px 6px;border-radius:6px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,"Liberation Mono",monospace;
+      font-size:0.95em;
+      color:#c7d2fe;
+    }
+
+    /* Right nav */
+    .sidenav{
+      position:sticky; top:24px;
+      height:fit-content;
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px;
+    }
+    .sidenav h3{
+      margin:0 0 8px;
+      font-size:14px;
+      color:var(--muted);
+      font-weight:600;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+    }
+    .toc{
+      list-style:none;
+      margin:0;padding:0;
+      display:flex; flex-direction:column; gap:6px;
+    }
+    .toc a{
+      display:block;
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+      color:var(--text);
+    }
+    .toc a.active{
+      background:linear-gradient(180deg, rgba(96,165,250,.18), rgba(34,211,238,.16));
+      border-color:#1e293b;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.04), 0 6px 18px rgba(34,211,238,.08);
+    }
+    .badge{
+      display:inline-block;
+      font-size:12px;
+      color:#a5b4fc;
+      background:rgba(99,102,241,.12);
+      border:1px solid rgba(99,102,241,.3);
+      border-radius:999px;
+      padding:2px 8px;
+      vertical-align:middle;
+      margin-left:8px;
+    }
+    .foot{
+      margin-top:22px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .link-list{display:flex; flex-direction:column; gap:8px}
+    .link-list a{word-break:break-all}
+    @media (max-width: 960px){
+      .wrap{
+        grid-template-columns: 1fr;
+      }
+      .sidenav{position:static; order:-1}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="main">
+      <header>
+        <h1>个人总结与去向<span class="badge">PDF 转网页</span></h1>
+        <p>（保留原文要点与链接，优化排版与阅读体验）</p>
+      </header>
+
+      <section id="bg">
+        <h2><span class="mark"></span>个人背景</h2>
+        <ul>
+          <li>22 级计算机科学与技术专业绩点全院第一。</li>
+          <li>论文：一篇 A 会在投（现已拒稿）、一篇一区在投（现已接收）。</li>
+          <li>2024 年国家奖学金。</li>
+          <li>比赛 20+ 项。</li>
+          <li>作者自评：绩点亮眼；论文在投视为未产出；奖学金对申港校有用、其他学校作用有限；比赛作用有限。<br/>总结：主要优势是绩点。</li>
+        </ul>
+        <p style="color:#9fb3c8;font-size:14px">
+          绩点明细：必选课+选修课 4.59；必选课 4.36。
+        </p>
+      </section>
+
+      <section id="camp">
+        <h2><span class="mark"></span>夏令营情况</h2>
+        <ul>
+          <li>国防科技大学计算机复试：排名 187 / 400+。</li>
+          <li>东南大学软件复试：排名 88 / 200+。</li>
+          <li>浙江大学软件复试：排名 110 / 500+（最终去向）。</li>
+          <li>吉林大学计算机：入了未去。</li>
+          <li>华东师范大学软件：入了未去。</li>
+          <li>中山大学微电子：入了未去。</li>
+          <li>中科大科学岛等离子所：入了未去。</li>
+          <li>复旦大学网络安全：入了未去。</li>
+        </ul>
+        <div class="link-list">
+          <a href="https://github.com/SunSeaLucky/BY-why/issues" target="_blank" rel="noopener">相关 Issue 汇总</a>
+          <a href="https://github.com/SunSeaLucky/BY-why/issues" target="_blank" rel="noopener">（镜像）相关 Issue 汇总</a>
+        </div>
+      </section>
+
+      <section id="tips">
+        <h2><span class="mark"></span>小提示</h2>
+        <ul>
+          <li>大二谨慎申请大创（除非确需保研加分）。</li>
+          <li>绩点重要但不必“只刷绩点”；时间要留给科研与论文产出。</li>
+          <li>抓紧科研，尽早发论文，否则会被差距拉大。</li>
+          <li>遇到不合适的老师，尽量体面止损并及时更换环境。</li>
+          <li>使用校园/科研网络时注意合规与专注。</li>
+        </ul>
+      </section>
+
+      <section id="ads">
+        <h2><span class="mark"></span>资源与参考</h2>
+        <div class="link-list">
+          <a href="https://sunsealucky.github.io/xju-course-wiki" target="_blank" rel="noopener">新疆大学课程维基</a>
+          <a href="https://github.com/Indolent-Kawhi/XJU-Computing-Heart" target="_blank" rel="noopener">新疆大学期末资源仓库</a>
+          <a href="https://haodongcui.github.io/xju-math-wiki" target="_blank" rel="noopener">新疆大学数学课程维基</a>
+          <a href="https://sunsealucky.github.io/xju-course-wiki" target="_blank" rel="noopener">（镜像）课程维基</a>
+          <a href="https://github.com/Indolent-Kawhi/XJU-Computing-Heart" target="_blank" rel="noopener">（镜像）期末资源仓库</a>
+        </div>
+        <p class="foot">以上链接来自原 PDF，已保留。</p>
+      </section>
+    </main>
+
+    <aside class="sidenav" aria-label="目录">
+      <h3>目录</h3>
+      <nav>
+        <ul class="toc" id="toc">
+          <li><a href="#bg">个人背景</a></li>
+          <li><a href="#camp">夏令营情况</a></li>
+          <li><a href="#tips">小提示</a></li>
+          <li><a href="#ads">资源与参考</a></li>
+        </ul>
+      </nav>
+    </aside>
+  </div>
+
+  <script>
+    // Intersection Observer to highlight active section
+    const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+    const byId = id => document.getElementById(id);
+    const sections = ['bg','camp','tips','ads'].map(byId);
+
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const id = e.target.id;
+          tocLinks.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+
+    sections.forEach(sec=>io.observe(sec));
+
+    // If user clicks a TOC link, make it active immediately
+    tocLinks.forEach(a=>a.addEventListener('click',()=>{
+      tocLinks.forEach(x=>x.classList.remove('active'));
+      a.classList.add('active');
+    }));
+  </script>
+</body>
+</html>
